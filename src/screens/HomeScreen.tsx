@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
-    StyleSheet,
     TouchableOpacity,
     ScrollView,
     Alert,
@@ -18,6 +17,7 @@ import { HistoryList } from '../components/HistoryList';
 import { useTheme } from '../contexts/ThemeContext';
 import { openWhatsApp } from '../utils/whatsapp';
 import { saveHistoryEntry, getHistory, deleteHistoryEntry } from '../utils/storage';
+import { homeScreenStyles as styles } from './styles/HomeScreen.styles';
 
 type Props = DrawerScreenProps<any, 'Home'>;
 
@@ -127,64 +127,4 @@ export const HomeScreen: React.FC<Props> = ({ navigation }) => {
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    scrollView: {
-        flex: 1,
-    },
-    content: {
-        padding: 20,
-    },
-    header: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: 16,
-        marginBottom: 24,
-    },
-    menuButton: {
-        marginRight: 16,
-        padding: 8,
-    },
-    menuIcon: {
-        fontSize: 24,
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        flex: 1,
-    },
-    formSection: {
-        marginBottom: 32,
-    },
-    label: {
-        fontSize: 14,
-        fontWeight: '600',
-        marginBottom: 8,
-        textTransform: 'uppercase',
-        letterSpacing: 0.5,
-    },
-    openButton: {
-        padding: 18,
-        borderRadius: 12,
-        alignItems: 'center',
-        marginTop: 8,
-    },
-    openButtonDisabled: {
-        opacity: 0.5,
-    },
-    openButtonText: {
-        color: '#FFFFFF',
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    historySection: {
-        flex: 1,
-    },
-    historyTitle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginBottom: 16,
-    },
-});
+
