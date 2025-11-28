@@ -31,6 +31,10 @@
         "cancel": "Cancel",
         "done": "Done",
         "delete": "Delete",
-        "confirm": "Confirm"
+        "confirm": "Confirm",
+        "justNow": "Just now",
+        "minutesAgo": "{{count}}m ago",
+        "hoursAgo": "{{count}}h ago",
+        "daysAgo": "{{count}}d ago"
     }
 }

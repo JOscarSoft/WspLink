@@ -31,6 +31,10 @@
         "cancel": "Cancelar",
         "done": "Listo",
         "delete": "Eliminar",
-        "confirm": "Confirmar"
+        "confirm": "Confirmar",
+        "justNow": "Justo ahora",
+        "minutesAgo": "Hace {{count}}m",
+        "hoursAgo": "Hace {{count}}h",
+        "daysAgo": "Hace {{count}}d"
     }
 }
