@@ -1,0 +1,36 @@
+{
+    "home": {
+        "title": "Generador de Enlaces de WhatsApp",
+        "selectCountry": "Seleccionar País",
+        "phoneNumber": "Número de Teléfono",
+        "phoneNumberPlaceholder": "Ingrese número de teléfono",
+        "openWhatsApp": "Abrir WhatsApp",
+        "history": "Contactos Recientes",
+        "noHistory": "No hay contactos recientes",
+        "clearHistory": "Limpiar Historial",
+        "deleteEntry": "Eliminar"
+    },
+    "settings": {
+        "title": "Configuración",
+        "language": "Idioma",
+        "darkMode": "Modo Oscuro",
+        "version": "Versión",
+        "english": "Inglés",
+        "spanish": "Español"
+    },
+    "countrySelector": {
+        "title": "Seleccionar País",
+        "search": "Buscar países...",
+        "noResults": "No se encontraron países"
+    },
+    "errors": {
+        "invalidPhone": "Por favor ingrese un número de teléfono válido",
+        "cannotOpen": "No se puede abrir WhatsApp. Asegúrese de que esté instalado."
+    },
+    "common": {
+        "cancel": "Cancelar",
+        "done": "Listo",
+        "delete": "Eliminar",
+        "confirm": "Confirmar"
+    }
+}

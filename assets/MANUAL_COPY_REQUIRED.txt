@@ -1,0 +1,15 @@
+IMPORTANT: ASSET COPY REQUIRED
+
+Due to terminal restrictions, the app assets could not be copied automatically.
+Please manually copy the generated icon file to this directory.
+
+Source File:
+C:\Users\jordy\.gemini\antigravity\brain\da9d3eec-940f-44be-8261-1b120e2c47ea\wsplink_favicon_1764283668615.png
+
+Copy this file to this directory (assets/) and rename it to:
+1. favicon.png
+2. icon.png
+3. adaptive-icon.png
+4. splash.png
+
+After copying these 4 files, run 'npm start' to launch the app.

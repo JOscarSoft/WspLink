@@ -1,0 +1,36 @@
+{
+    "home": {
+        "title": "WhatsApp Link Generator",
+        "selectCountry": "Select Country",
+        "phoneNumber": "Phone Number",
+        "phoneNumberPlaceholder": "Enter phone number",
+        "openWhatsApp": "Open WhatsApp",
+        "history": "Recent Contacts",
+        "noHistory": "No recent contacts",
+        "clearHistory": "Clear History",
+        "deleteEntry": "Delete"
+    },
+    "settings": {
+        "title": "Settings",
+        "language": "Language",
+        "darkMode": "Dark Mode",
+        "version": "Version",
+        "english": "English",
+        "spanish": "Spanish"
+    },
+    "countrySelector": {
+        "title": "Select Country",
+        "search": "Search countries...",
+        "noResults": "No countries found"
+    },
+    "errors": {
+        "invalidPhone": "Please enter a valid phone number",
+        "cannotOpen": "Cannot open WhatsApp. Please make sure it's installed."
+    },
+    "common": {
+        "cancel": "Cancel",
+        "done": "Done",
+        "delete": "Delete",
+        "confirm": "Confirm"
+    }
+}
