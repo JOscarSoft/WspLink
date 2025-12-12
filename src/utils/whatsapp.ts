@@ -18,15 +18,24 @@ export const openWhatsApp = async (
 ): Promise<boolean> => {
     try {
         const url = generateWhatsAppLink(countryCode, phoneNumber);
-        const canOpen = await Linking.canOpenURL(url);
 
-        if (canOpen) {
-            await Linking.openURL(url);
-            return true;
-        } else {
-            console.error('Cannot open WhatsApp URL');
-            return false;
+        // Try to check if URL can be opened
+        // Note: In production Android builds, canOpenURL may return false
+        // even if WhatsApp is installed due to Android 11+ query restrictions
+        try {
+            const canOpen = await Linking.canOpenURL(url);
+            if (canOpen) {
+                await Linking.openURL(url);
+                return true;
+            }
+        } catch (canOpenError) {
+            console.log('canOpenURL check failed, attempting to open anyway');
         }
+
+        // Fallback: Try to open the URL directly
+        // This will work if WhatsApp is installed, even if canOpenURL returned false
+        await Linking.openURL(url);
+        return true;
     } catch (error) {
         console.error('Error opening WhatsApp:', error);
         return false;

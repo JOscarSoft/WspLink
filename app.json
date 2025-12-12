@@ -23,7 +23,25 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#25D366"
       },
-      "package": "com.wsplink"
+      "package": "com.wsplink",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "https",
+              "host": "api.whatsapp.com"
+            },
+            {
+              "scheme": "whatsapp"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
