@@ -1,0 +1,66 @@
+name: Build IPA for AltStore
+
+on:
+  push:
+    branches:
+      - main
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build iOS (AltStore)
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Setup Ruby for CocoaPods
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Prebuild iOS (Generate native code)
+        run: npx expo prebuild --platform ios --clean
+
+      - name: Build unsigned .app using xcodebuild
+        working-directory: ios
+        run: |
+          # Build the app forcing code signing to be disabled
+          xcodebuild -workspace WspLink.xcworkspace \
+            -scheme WspLink \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            EXPANDED_CODE_SIGN_IDENTITY="" \
+            -allowProvisioningUpdates
+
+      - name: Create IPA payload
+        working-directory: ios/build/Build/Products/Release-iphoneos
+        run: |
+          # AltStore/Sideloadly require the .app to be zipped inside a folder named 'Payload'
+          mkdir Payload
+          # The app folder is WspLink.app (based on app.json name)
+          mv WspLink.app Payload/
+          zip -q -r WspLink.ipa Payload
+
+      - name: Upload IPA Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: WspLink-AltStore-IPA
+          path: ios/build/Build/Products/Release-iphoneos/WspLink.ipa
+          retention-days: 7
